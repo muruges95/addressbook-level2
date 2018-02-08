@@ -14,6 +14,7 @@ import seedu.addressbook.storage.StorageFile;
 import seedu.addressbook.storage.StorageFile.InvalidStorageFilePathException;
 import seedu.addressbook.storage.StorageFile.StorageOperationException;
 import seedu.addressbook.ui.TextUi;
+import seedu.addressbook.common.Messages;
 
 
 /**
@@ -112,7 +113,7 @@ public class Main {
             storage.save(addressBook);
             return result;
         } catch (StorageOperationException e) {
-            ui.showToUser("An error has occurred: The storage file is currently read-only.");
+            ui.showToUser(Messages.MESSAGE_STORAGE_FILE_CANNOT_OPEN);
             return new CommandResult("");
         } catch (Exception e) {
             ui.showToUser(e.getMessage());

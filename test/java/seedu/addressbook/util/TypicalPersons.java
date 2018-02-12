@@ -44,7 +44,7 @@ public class TypicalPersons {
     }
 
     public Person[] getTypicalPersons() {
-        return new Person[]{amy, bill, candy, dan};
+        return new Person[]{dan, amy, bill, candy};
     }
 
     public AddressBook getTypicalAddressBook() {

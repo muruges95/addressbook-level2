@@ -5,11 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import org.junit.Test;
 
@@ -125,7 +121,10 @@ public class AddCommandTest {
 
         assertTrue(people.contains(p));
         assertEquals(1, people.immutableListView().size());
-        assertFalse(result.getRelevantPersons().isPresent());
+        assertTrue(result.getRelevantPersons().isPresent());
+        List<ReadOnlyPerson> expectedList =  new ArrayList<ReadOnlyPerson>();
+        expectedList.add(p);
+        assertEquals(expectedList, result.getRelevantPersons().get());
         assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, p), result.feedbackToUser);
     }
 

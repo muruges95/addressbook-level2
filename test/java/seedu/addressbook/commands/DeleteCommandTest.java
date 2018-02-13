@@ -111,6 +111,9 @@ public class DeleteCommandTest {
 
         assertEquals(expectedMessage, result.feedbackToUser);
         assertEquals(expectedAddressBook.getAllPersons(), actualAddressBook.getAllPersons());
+        if (expectedMessage.equals(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS)){
+            assertEquals(expectedAddressBook.getAllPersons().immutableListView(), result.getRelevantPersons().get());
+        }
     }
 
     /**
